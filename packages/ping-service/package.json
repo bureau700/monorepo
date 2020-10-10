@@ -9,7 +9,7 @@
     "build": "tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@monorepo/utils": "0.1.0",
+    "@monorepo/utils": "*",
     "typescript": "^4.0.3"
   },
   "peerDependencies": {
