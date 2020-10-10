@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.build.json",
+
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@monorepo/ping-service": ["packages/ping-service/src"]
+    },
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}

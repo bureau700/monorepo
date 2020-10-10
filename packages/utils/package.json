@@ -1,0 +1,11 @@
+{
+  "name": "@monorepo/utils",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json"
+  }
+}
