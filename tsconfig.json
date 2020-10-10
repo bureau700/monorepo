@@ -4,9 +4,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@monorepo/ping-service": ["packages/ping-service/src"]
+      "@monorepo/*": ["packages/*/src"]
     },
+    "jsx": "react",
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    // "types": []
+    "noEmit": true
   }
 }
