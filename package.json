@@ -2,10 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "clear": "rm -rf packages/*/dist",
-    "clearDeps": "rm -rf ./node_modules && rm -rf packages/*/node_modules",
-    "build": "yarn clear && lerna run build --stream",
+    "build": "lerna run build --stream",
     "start": "nodemon",
+    "start:prod": "node packages/server/dist/index.js",
     "lint": "eslint 'packages/*/src/**/*.{ts,js}'",
     "typecheck": "lerna run typecheck --stream"
   },
@@ -15,6 +14,7 @@
     "lerna": "^3.22.1",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.2",
+    "rimraf": "^3.0.2",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.3"
   },

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node -r tsconfig-paths/register src/index.ts",
-    "build": "tsc -p tsconfig.build.json",
+    "build": "rimraf -rf ./dist && tsc -p tsconfig.build.json",
     "typecheck": "tsc"
   },
   "dependencies": {
