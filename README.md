@@ -69,6 +69,11 @@ But actually in `package.json` you can replace the version with `*`:
 }
 ```
 
+Note that you also have the choice to change directory and go
+under `packages/foo` and run a regular `yarn add` command.
+`yarn` will understand the monorepo context and do the right
+thing.
+
 ### Run npm/yarn scripts
 
 To run a script at the root, nothing changes compared to a regular repository.
@@ -84,3 +89,6 @@ the tasks are not executed in parallel by default, the outputs
 are not mixed.
 
     lerna run lint --stream
+
+You can also change directory and go under `packages/foo` and
+use a regular `yarn xxx` command.
