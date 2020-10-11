@@ -5,7 +5,7 @@
     "clear": "rm -rf packages/*/dist",
     "clearDeps": "rm -rf ./node_modules && rm -rf packages/*/node_modules",
     "build": "yarn clear && lerna run build --stream",
-    "start": "yarn workspace @monorepo/server start",
+    "start": "nodemon",
     "lint": "eslint 'packages/*/src/**/*.{ts,js}'",
     "typecheck": "lerna run typecheck --stream"
   },
@@ -13,6 +13,7 @@
     "@nighttrax/eslint-config-tsx": "~6.3.0",
     "eslint": "^7.11.0",
     "lerna": "^3.22.1",
+    "nodemon": "^2.0.4",
     "prettier": "^2.1.2",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.3"
