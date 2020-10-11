@@ -12,6 +12,9 @@ All services are in `packages/*-service`.
 ### Prepare
 
     yarn
+
+### Run in dev
+
     yarn start
 
 ### Build for production
