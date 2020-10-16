@@ -1,0 +1,8 @@
+entity: User
+items:
+  admin:
+    email: john.doe@jison.dev
+    isActive: true
+  user:
+    email: bob@jison.dev
+    isActive: true

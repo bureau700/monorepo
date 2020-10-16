@@ -1,0 +1,13 @@
+{
+  "name": "@jison/dotenv-load",
+  "private": "true",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "dotenv-expand": "^5.1.0",
+    "find-up": "^5.0.0"
+  }
+}

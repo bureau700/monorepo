@@ -1,10 +1,12 @@
 {
     "watch": [
+        "packages/dotenv-load",
+        "packages/ping-service/src",
         "packages/server/src",
-        "packages/utils/src",
-        "packages/ping-service/src"
+        "packages/user-service/src",
+        "packages/utils/src"
     ],
     "ext": "ts,js,json",
     "ignore": ["**/*.spec.ts"],
-    "exec": "yarn workspace @monorepo/server start"
+    "exec": "yarn workspace @jison/server start"
 }

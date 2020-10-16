@@ -1,10 +1,9 @@
-import {FastifyPluginAsync} from 'fastify';
-import {capitalize} from '@monorepo/utils';
+import { FastifyPluginAsync } from 'fastify';
 
-export const pingServicePath = '/ping';
+export const pingServicePath = '/v1/ping';
 
 const pingService: FastifyPluginAsync = async (fastify) => {
-  fastify.get(pingServicePath, async () => capitalize('pong'));
+  fastify.get(pingServicePath, async () => 'pong');
 };
 
 export default pingService;

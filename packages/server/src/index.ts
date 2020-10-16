@@ -1,5 +1,9 @@
 import * as Fastify from 'fastify';
-import pingService, {pingServicePath} from '@monorepo/ping-service';
+import fastifySwagger from 'fastify-swagger';
+import pingService from '@monorepo/ping-service';
+import userService from '@monorepo/user-service';
+
+const activateSwagger = process.env.NODE_ENV === 'development';
 
 start().catch((err) => console.error(err));
 
@@ -8,9 +12,13 @@ async function start() {
     logger: true,
   });
 
-  console.log(pingServicePath);
+  fastify.register(fastifySwagger, {
+    routePrefix: '/documentation',
+    exposeRoute: activateSwagger,
+  });
 
   fastify.register(pingService);
+  fastify.register(userService);
 
   try {
     await fastify.listen(3000);

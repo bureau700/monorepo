@@ -1,0 +1,11 @@
+entity: User
+items:
+  admin:
+    firstName: John
+    lastName: Doe
+    email: john.doe@jison.dev
+    isActive: true
+  user:
+    firstName: Bob
+    email: bob@jison.dev
+    isActive: true
