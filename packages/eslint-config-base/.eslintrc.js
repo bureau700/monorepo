@@ -50,6 +50,7 @@ module.exports = {
         '@typescript-eslint/ban-types': 'off',
         'no-param-reassign': 'off',
         'no-underscore-dangle': 'off',
+        'no-extraneous-dependencies': 'off',
         'jest/no-disabled-tests': 'warn',
         'jest/no-focused-tests': 'error',
         'jest/no-identical-title': 'error',

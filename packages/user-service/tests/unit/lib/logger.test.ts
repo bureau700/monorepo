@@ -1,4 +1,4 @@
-import {Logger} from '../../../src/lib/logger';
+import { Logger } from '../../../src/lib/logger';
 
 describe('logger', () => {
   let debugSpy: jest.SpyInstance;
@@ -14,7 +14,7 @@ describe('logger', () => {
   });
 
   describe('when in test environement', () => {
-    const logger = new Logger({env: 'test'});
+    const logger = new Logger({ env: 'test' });
 
     describe('debug', () => {
       it('should not log anything', () => {
@@ -46,7 +46,7 @@ describe('logger', () => {
   });
 
   describe('when not in test environement', () => {
-    const logger = new Logger({env: 'staging'});
+    const logger = new Logger({ env: 'staging' });
 
     describe('debug', () => {
       it('should log something', () => {

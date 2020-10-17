@@ -1,4 +1,4 @@
-import {encodePassword} from '../../../../src/lib/security/password';
+import { encodePassword } from '../../../../src/lib/security/password';
 
 describe('security/password', () => {
   describe('encodePassword', () => {

@@ -2,14 +2,16 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "commonjs",
+    "esModuleInterop": true,
     "sourceMap": true,
     "noEmitOnError": true,
     "declaration": true,
     "declarationMap": true
   },
-
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "**/tests/**/*.ts",
+    "**/*test.{ts,js}"
   ]
 }

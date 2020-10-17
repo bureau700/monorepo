@@ -1,7 +1,7 @@
 import path from 'path';
-import {PostgresConnectionOptions} from 'typeorm/driver/postgres/PostgresConnectionOptions';
-import {cleanDatabase} from '../src/database/utils/db-cleaner';
-import {loadFixtures} from '../src/database/utils/load-fixtures';
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { cleanDatabase } from '../src/database/utils/db-cleaner';
+import { loadFixtures } from '../src/database/utils/load-fixtures';
 
 export default async function setupJest() {
   process.env.NODE_ENV = 'test';

@@ -1,11 +1,12 @@
 import faker from 'faker';
-import {User} from '../../src/database/entities/User';
+import { User } from '../../src/database/entities/User';
 
 describe('signup controller', () => {
-  let app: AppType;
+  // let app: AppType;
+  let app: any;
 
   beforeAll(async () => {
-    app = await buildApp();
+    // app = await buildApp();
   });
 
   afterAll(async () => {
@@ -85,7 +86,7 @@ describe('signup controller', () => {
             {
               field: 'email',
               rules: 'format',
-              params: {format: 'email'},
+              params: { format: 'email' },
               message: expect.toBeString(),
             },
           ],
@@ -112,7 +113,7 @@ describe('signup controller', () => {
             {
               field: 'email',
               rules: 'required',
-              params: {missingProperty: 'email'},
+              params: { missingProperty: 'email' },
               message: expect.toBeString(),
             },
           ],
@@ -141,7 +142,7 @@ describe('signup controller', () => {
             {
               field: 'password',
               rules: 'minLength',
-              params: {limit: 3},
+              params: { limit: 3 },
               message: expect.toBeString(),
             },
           ],
@@ -168,7 +169,7 @@ describe('signup controller', () => {
             {
               field: 'password',
               rules: 'required',
-              params: {missingProperty: 'password'},
+              params: { missingProperty: 'password' },
               message: expect.toBeString(),
             },
           ],

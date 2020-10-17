@@ -1,5 +1,6 @@
 {
   "extends": "../../tsconfig.build.json",
+
   "compilerOptions": {
     "outDir": "./dist",
     "experimentalDecorators": true,

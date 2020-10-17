@@ -1,9 +1,9 @@
 {
   "name": "@jison/ping-service",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "license": "MIT",
   "scripts": {
     "build": "rimraf -rf ./dist && tsc -p tsconfig.build.json",
     "typecheck": "tsc"
