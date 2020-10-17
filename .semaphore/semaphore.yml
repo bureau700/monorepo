@@ -1,0 +1,91 @@
+version: v1.0
+name: Bets Friends API
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+auto_cancel:
+  queued:
+    when: 'true'
+
+blocks:
+  - name: Install dependencies
+    dependencies: []
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - yarn --version
+      jobs:
+        - name: yarn
+          commands:
+            - yarn install --frozen-lockfile
+
+  - name: Checks
+    dependencies: ['Install dependencies']
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - yarn --version
+          - yarn install --frozen-lockfile
+      jobs:
+        - name: Typescript check
+          commands:
+            - npx lerna run typecheck --stream
+        - name: Lint check
+          commands:
+            - npx lerna run lint --stream
+
+  - name: Tests
+    dependencies: ['Install dependencies']
+    task:
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - yarn --version
+          - docker -v
+          - docker-compose -v
+          - yarn install --frozen-lockfile
+      jobs:
+        - name: Run unit tests
+          commands:
+            - npx lerna run test --stream
+        - name: Run E2E tests
+          commands:
+            - ./run-test-ci.sh
+
+  - name: Deploy
+    dependencies: ['Checks', 'Tests']
+    run:
+      when: "branch = 'master'"
+    task:
+      secrets:
+        - name: heroku-secret
+      env_vars:
+        - name: HEROKU_REMOTE
+          value: https://git.heroku.com/jison-service-users.git
+      prologue:
+        commands:
+          - checkout
+          - sem-version node 12
+          - node --version
+          - yarn --version
+          - yarn install --frozen-lockfile
+          - lerna run build --stream
+      jobs:
+        - name: Push code
+          commands:
+            - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
+            - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
+            - ssh-add ~/.ssh/id_rsa_semaphore_heroku
+            - git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
+            - git remote add heroku $HEROKU_REMOTE
+            - git push heroku -f $SEMAPHORE_GIT_BRANCH:master

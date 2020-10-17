@@ -18,7 +18,7 @@ export default fp(fastifyServicePlugin, { name: 'Services', dependencies: ['Type
 declare module 'fastify' {
   export interface FastifyInstance {
     services: {
-      userService: UserService;
+      userService: Partial<UserService>;
     };
   }
 }

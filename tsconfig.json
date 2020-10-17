@@ -11,5 +11,12 @@
     "noEmit": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/dist/**/*.d.ts",
+    "**/tests/**/*.ts",
+    "**/*test.{ts,js}"
+  ]
 }
