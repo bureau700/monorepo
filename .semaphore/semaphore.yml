@@ -1,5 +1,5 @@
 version: v1.0
-name: Bets Friends API
+name: Jison Services API
 agent:
   machine:
     type: e1-standard-2
