@@ -63,21 +63,21 @@ blocks:
             - ./run-test-ci.sh
 
   - name: E2E tests
-  dependencies: ['Install dependencies']
-  task:
-    prologue:
-      commands:
-        - checkout
-        - sem-version node 12
-        - node --version
-        - yarn --version
-        - docker -v
-        - docker-compose -v
-        - yarn install --frozen-lockfile
-    jobs:
-      - name: Run E2E tests
+    dependencies: ['Install dependencies']
+    task:
+      prologue:
         commands:
-          - npx lerna ci:test:e2e --stream
+          - checkout
+          - sem-version node 12
+          - node --version
+          - yarn --version
+          - docker -v
+          - docker-compose -v
+          - yarn install --frozen-lockfile
+      jobs:
+        - name: Run E2E tests
+          commands:
+            - npx lerna ci:test:e2e --stream
 
   - name: Deploy
     dependencies: ['Checks', 'Unit tests', 'E2E tests']
