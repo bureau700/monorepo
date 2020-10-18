@@ -92,8 +92,8 @@ blocks:
           - sem-version node 12
           - node --version
           - yarn --version
-          - yarn install --frozen-lockfile
-          - lerna run build --stream
+          # - yarn install --frozen-lockfile
+          # - lerna run build --stream
       jobs:
         - name: Push code
           commands:
