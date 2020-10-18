@@ -43,14 +43,14 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/tests/**/*.{ts,tsx}', '*.test.js'],
+      files: ['**/tests/**/*.{ts,js}', '*.test.{ts,js}'],
       rules: {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/ban-types': 'off',
         'no-param-reassign': 'off',
         'no-underscore-dangle': 'off',
-        'no-extraneous-dependencies': 'off',
+        'import/no-extraneous-dependencies': 'off',
         'jest/no-disabled-tests': 'warn',
         'jest/no-focused-tests': 'error',
         'jest/no-identical-title': 'error',
