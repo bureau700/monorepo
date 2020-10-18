@@ -1,12 +1,12 @@
 import faker from 'faker';
 import { User } from '../../src/database/entities/User';
+import { AppType, buildApp } from './app';
 
 describe('signup controller', () => {
-  // let app: AppType;
-  let app: any;
+  let app: AppType;
 
-  beforeAll(async () => {
-    // app = await buildApp();
+  beforeAll(() => {
+    app = buildApp();
   });
 
   afterAll(async () => {
