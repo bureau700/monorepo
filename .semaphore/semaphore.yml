@@ -42,7 +42,7 @@ blocks:
           commands:
             - npx lerna run lint --stream
 
-  - name: Tests
+  - name: Unit tests
     dependencies: ['Install dependencies']
     task:
       prologue:
@@ -57,13 +57,30 @@ blocks:
       jobs:
         - name: Run unit tests
           commands:
-            - npx lerna run test --stream
+            - yarn ci:test
         - name: Run E2E tests
           commands:
             - ./run-test-ci.sh
 
+  - name: E2E tests
+  dependencies: ['Install dependencies']
+  task:
+    prologue:
+      commands:
+        - checkout
+        - sem-version node 12
+        - node --version
+        - yarn --version
+        - docker -v
+        - docker-compose -v
+        - yarn install --frozen-lockfile
+    jobs:
+      - name: Run E2E tests
+        commands:
+          - npx lerna ci:test:e2e --stream
+
   - name: Deploy
-    dependencies: ['Checks', 'Tests']
+    dependencies: ['Checks', 'Unit tests', 'E2E tests']
     run:
       when: "branch = 'master'"
     task:

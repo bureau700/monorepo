@@ -6,7 +6,11 @@
     "start": "nodemon",
     "start:prod": "node packages/server/dist/index.js",
     "lint": "eslint 'packages/*/src/**/*.{ts,js}'",
-    "typecheck": "lerna run typecheck --stream"
+    "typecheck": "lerna run typecheck --stream",
+    "test": "lerna run test --stream",
+    "test:e2e": "lerna run test:e2e --stream",
+    "ci:test": "lerna run test --stream -- --ci",
+    "ci:test:e2e": "lerna run test:e2e --stream -- --ci"
   },
   "devDependencies": {
     "@jison/eslint-config-base": "0.1.0",

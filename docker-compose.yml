@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_DB: jison-test
+      POSTGRES_USER: jison
+      POSTGRES_PASSWORD: secret
+    ports:
+      - '5432:5432'
+    networks:
+      - postgres
+  test:
+    container_name: jison-container-test
+    build: .
+    environment:
+      DATABASE_URL: postgres://jison:secret@postgres/jison-test
+    depends_on:
+      - db
+    networks:
+      - postgres
+
+networks:
+  postgres:
+    driver: bridge
