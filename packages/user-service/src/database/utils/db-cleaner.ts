@@ -1,11 +1,21 @@
 import { Client } from 'pg';
 
+const SAFE_DATABASE_URLS = ['test', 'dev', 'dsn3aq82gduu5'];
+const RISKY_DATABASE_URLS = ['prod'];
+
+function isSafeDatabase(url) {
+  return (
+    SAFE_DATABASE_URLS.some((content) => url.includes(content)) &&
+    !RISKY_DATABASE_URLS.some((content) => url.includes(content))
+  );
+}
+
 export async function cleanDatabase(databaseUrl?: string) {
   if (!databaseUrl) {
     throw new Error('Please check that DATABASE_URL is configured.');
   }
 
-  if ((!databaseUrl.includes('dev') && !databaseUrl.includes('test')) || databaseUrl.includes('prod')) {
+  if (!isSafeDatabase(databaseUrl)) {
     throw new Error(
       `Environment doesn't seem to be safe to delete database. DATABASE_URL=${databaseUrl.replace(
         /\/\/[^:]+:[^@]*/,

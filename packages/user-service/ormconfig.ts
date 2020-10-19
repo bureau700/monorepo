@@ -1,6 +1,6 @@
-import {ConnectionOptions} from 'typeorm';
-import {Token} from './src/database/entities/Token';
-import {User} from './src/database/entities/User';
+import { ConnectionOptions } from 'typeorm';
+import { Token } from './src/database/entities/Token';
+import { User } from './src/database/entities/User';
 
 export default {
   type: 'postgres',

@@ -15,7 +15,7 @@ import { encodePassword } from '../../lib/security/password';
 const ulid = monotonicFactory();
 const PREFIX = 'user';
 
-@Entity()
+@Entity('User')
 export class User extends BaseEntity {
   static prefix = PREFIX;
 
