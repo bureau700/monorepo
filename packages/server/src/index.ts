@@ -1,7 +1,7 @@
 import * as Fastify from 'fastify';
 import fastifySwagger from 'fastify-swagger';
 import pingService from '@jison/ping-service';
-import userService from '@jison/user-service';
+// import userService from '@jison/user-service';
 
 // const activateSwagger = process.env.NODE_ENV === 'development';
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
@@ -19,7 +19,7 @@ async function start() {
   });
 
   fastify.register(pingService);
-  fastify.register(userService);
+  // fastify.register(userService);
 
   try {
     await fastify.listen(PORT);
