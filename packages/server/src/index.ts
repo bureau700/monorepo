@@ -10,13 +10,15 @@ start().catch((err) => console.error(err));
 
 async function start() {
   const fastify = Fastify.fastify({
-    logger: true,
+    logger: {
+      level: 'debug',
+    },
   });
 
-  fastify.register(fastifySwagger, {
-    routePrefix: '/documentation',
-    exposeRoute: true,
-  });
+  // fastify.register(fastifySwagger, {
+  //   routePrefix: '/documentation',
+  //   exposeRoute: true,
+  // });
 
   fastify.register(pingService);
   // fastify.register(userService);
@@ -31,6 +33,7 @@ async function start() {
   });
 
   try {
+    console.log(process.env);
     await fastify.listen(PORT);
   } catch (err) {
     fastify.log.error(err);
