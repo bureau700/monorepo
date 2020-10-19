@@ -21,6 +21,15 @@ async function start() {
   fastify.register(pingService);
   // fastify.register(userService);
 
+  fastify.ready(() => {
+    console.log(fastify.printRoutes());
+  });
+
+  fastify.setErrorHandler((error, request, reply) => {
+    console.log(error);
+    reply.code(500).send(error.message);
+  });
+
   try {
     await fastify.listen(PORT);
   } catch (err) {
